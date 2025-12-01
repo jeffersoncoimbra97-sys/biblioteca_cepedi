@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("SISTEMA DE BIBLIOTECA")
+    return render(request, 'index.html')
