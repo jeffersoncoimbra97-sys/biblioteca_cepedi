@@ -1,8 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
+from apps.core.views import index
 
 urlpatterns = [
-    path('index/', include("apps.core.urls")),
-    path('alunos/', include('apps.alunos.urls')),
     path('admin/', admin.site.urls),
+    path('', index, name='index'),
+    # Inclui todas as URLs do app alunos sob o prefixo '/alunos/'
+    path('alunos/', include('apps.alunos.urls', namespace='alunos')),
+    path('livros/', include('apps.livros.urls', namespace='livros')),
 ]
