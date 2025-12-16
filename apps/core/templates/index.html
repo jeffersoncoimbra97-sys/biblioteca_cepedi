@@ -17,8 +17,11 @@
     <a href="{% url 'livros:inserir_livro' %}">
     <button>Inserir Livros</button>
     </a><br>
-    <a href="http://127.0.0.1:8000/emprestimos">
-    <button>Emprestimos</button>
+    <a href="{% url 'livros:listar_livros' %}">
+    <button>Listar Livros</button>
+    </a><br>
+    <a href="{% url 'emprestimos:inserir_emprestimo' %}">
+    <button>Cadastrar Emprestimos</button>
     </a><br>
 </body>
 </html>

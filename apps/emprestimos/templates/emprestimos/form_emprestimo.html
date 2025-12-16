@@ -16,7 +16,7 @@
     </div>
     <div class="card">
         <div class="card-header">
-            <h2><i class="fa fa-users"></i> Cadastro de Livros</h2>
+            <h2><i class="fa fa-users"></i> Cadastro de Emprestimos</h2>
         </div>
         <div class="card-body">
             <form method="post" enctype="multipart/form-data">
@@ -25,19 +25,14 @@
                     <div class="p-1 mb-2 bg-light text-dark">
                         <div class="form-row">
                             <div class="col-md-7">
-                                {{ form.titulo.errors }}
-                                <label><strong>Título:</strong></label>
-                                {{ form.titulo |add_class:"form-control" }}
+                                {{ form.aluno_id.errors }}
+                                <label><strong>Aluno:</strong></label>
+                                {{ form.aluno_id |add_class:"form-control" }}
                             </div>
-                            <div class="col-md-4">
-                                {{ form.autor.errors }}
-                                <label><strong>Autor:</strong></label>
-                                {{ form.autor |add_class:'form-control' }}
-                            </div>
-                            <div class="col-md-1">
-                                {{ form.edicao.errors }}
-                                <label><strong>Edição:</strong></label>
-                                {{ form.edicao |add_class:'form-control' }}
+                            <div class="col-md-5">
+                                {{ form.titulo_id.errors }}
+                                <label><strong>Titulo:</strong></label>
+                                {{ form.titulo_id |add_class:'form-control' }}
                             </div>
                         </div>
                     </div>
@@ -47,9 +42,9 @@
                     <div class="p-1 mb-2 bg-light text-dark">
                         <div class="form-row">
                             <div class="col-md-4 mb-0">
-                                {{ form.editora.errors }}
-                                <label><strong>Editora:</strong></label>
-                                {{ form.editora |add_class:'form-control'  }}
+                                {{ form.data_devolucao.errors }}
+                                <label><strong>Data de Devolução:</strong></label>
+                                {{ form.data_devolucao |add_class:'form-control'  }}
                             </div>
                             <div class="col-md-3">
                                 {{ form.ano_publicacao.erros | date:'d/m/Y'}}

@@ -8,4 +8,5 @@ urlpatterns = [
     # Inclui todas as URLs do app alunos sob o prefixo '/alunos/'
     path('alunos/', include('apps.alunos.urls', namespace='alunos')),
     path('livros/', include('apps.livros.urls', namespace='livros')),
+    path('emprestimos/', include('apps.emprestimos.urls', namespace='emprestimos')),
 ]

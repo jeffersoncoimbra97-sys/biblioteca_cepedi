@@ -7,5 +7,4 @@ class LivroForm(forms.ModelForm):
 
     class Meta:
         model = Livro
-        exclude = ['data_criacao', 'ultima_modificacao']
         fields = '__all__'

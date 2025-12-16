@@ -102,13 +102,13 @@ body.dark a i.fa-search {
     </div>
     <div class="card-body">
         <h5 class="card-title">Id: {{livro.id}}</h5>
-        <h5 class="card-title">Livro: {{livro.nome}}</h5>
         <h5 class="card-title">Titulo: {{livro.titulo}}</h5>
+        <h5 class="card-title">Autor: {{livro.autor}}</h5>
         <h5 class="card-title">Edição: {{livro.edicao}}</h5>
         <h5 class="card-title">Editora: {{livro.editora}}</h5>
-        <h5 class="card-title">Ano de publicação: {{livro.ano_publicacao}}</h5>
+        <h5 class="card-title">Data de publicação: {{livro.ano_publicacao}}</h5>
         <h5 class="card-title">ISBN: {{livro.isbn}}</h5>
-        <h5 class="card-title">Numero de paginas: {{livro.numero_paginas}}</h5>
+        <h5 class="card-title">Número de Páginas: {{livro.numero_paginas}}</h5>
 
         <form method="post">
              {% csrf_token %}
