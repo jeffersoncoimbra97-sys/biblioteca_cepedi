@@ -15,7 +15,7 @@
     </div>
     <div class="card mb-3">
         <div class="card-header">
-            <h2><i class="fa fa-list"> Listagem de Livros</i></h2>
+            <h2><i class="fa fa-list"> Listagem de Empréstimos</i></h2>
         </div>
         <div class="card-body">
 
@@ -27,12 +27,12 @@
             Ordenar
         </button>
         <ul class="dropdown-menu" aria-labelledby="ordenarDropdown">
-            <li><a class="dropdown-item" href="?ordem=titulo_asc">Titulo A → Z</a></li>
-            <li><a class="dropdown-item" href="?ordem=titulo_desc">Titulo Z → A</a></li>
-            <li><a class="dropdown-item" href="?ordem=autor_asc">Autor Crescente</a></li>
-            <li><a class="dropdown-item" href="?ordem=autor_desc">Autor Decrescente</a></li>
-            <li><a class="dropdown-item" href="?ordem=editora_asc">Editora Crescente</a></li>
-            <li><a class="dropdown-item" href="?ordem=editora_desc">Editora Decrescente</a></li>
+            <li><a class="dropdown-item" href="?ordem=id_asc">Id Crescente</a></li>
+            <li><a class="dropdown-item" href="?ordem=id_desc">Id Decrescente</a></li>
+            <li><a class="dropdown-item" href="?ordem=aluno_asc">Aluno A → Z</a></li>
+            <li><a class="dropdown-item" href="?ordem=aluno_desc">Aluno Z → A</a></li>
+            <li><a class="dropdown-item" href="?ordem=titulo_asc">Título Crescente</a></li>
+            <li><a class="dropdown-item" href="?ordem=titulo_desc">Título Decrescente</a></li>
         </ul>
     </div>
 
@@ -45,35 +45,33 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Aluno</th>
                             <th>Titulo</th>
-                            <th>Autor</th>
-                            <th>Edição</th>
-                            <th>Editora</th>
-                            <th>Ano de Publicação</th>
-                            <th>ISBN</th>
-                            <th>Numero de Paginas</th>
+                            <th>Data do Empréstimo</th>
+                            <th>Data Prevista Devolução</th>
+                            <th>Data Devolução</th>
+                            <th>Status</th>
                             <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for l in livros %}
+                    {% for e in emprestimos %}
                         <tr>
-                            <td>{{ l.id }}</td>
-                            <td><a href="#">{{ l.titulo.upper }}</a></td>
-                            <td>{{ l.autor }}</td>
-                            <td>{{ l.edicao }}</td>
-                            <td>{{ l.editora }}</td>
-                            <td>{{ l.ano_publicacao  | date:'d/m/Y'}}</td>
-                            <td>{{ l.isbn }}</td>
-                            <td>{{ l.numero_paginas }}</td>
+                            <td>{{ e.id }}</td>
+                            <td><a href="#">{{ e.aluno.upper }}</a></td>
+                            <td>{{ e.titulo }}</td>
+                            <td>{{ e.data_emprestimo | date:'d/m/Y'}}</td>
+                            <td>{{ e.data_prevista_devolucao | date:'d/m/Y'}}</td>
+                            <td>{{ e.data_devolucao | date:'d/m/Y'}}</td>
+                            <td>{{ e.status }}</td>
                             <td>
                                 <a href="#">
                                     <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
                                 </a>
-                                <a href="{% url 'livros:editar_livro' l.id%}">Editar
+                                <a href="{% url 'emprestimos:editar_emprestimo' e.id%}">Editar
                                     <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
                                 </a>
-                                <a href="{% url 'livros:excluir_livro' l.id%}"> Excluir
+                                <a href="{% url 'emprestimos:excluir_emprestimo' e.id%}"> Excluir
                                     <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
                                 </a>
                             </td>
@@ -86,7 +84,7 @@
     </div>
     <div class="col-12 card mb-3">
         <div class="card-header">
-            <a href="{% url 'livros:inserir_livro' %}"><button class="btn btn-success">Cadastrar</button></a>
+            <a href="{% url 'emprestimos:inserir_emprestimo' %}"><button class="btn btn-success">Cadastrar</button></a>
             <a href="{% url 'index' %}"><button class="btn btn-primary">Voltar</button></a>
         </div>
     </div>
