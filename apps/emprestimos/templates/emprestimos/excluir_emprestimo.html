@@ -98,17 +98,16 @@ body.dark a i.fa-search {
 
 <div class="card">
     <div class="card-header">
-        Tem certeza que deseja remover o livro abaixo?
+        Tem certeza que deseja remover o empréstimo abaixo?
     </div>
     <div class="card-body">
-        <h5 class="card-title">Id: {{livro.id}}</h5>
-        <h5 class="card-title">Titulo: {{livro.titulo}}</h5>
-        <h5 class="card-title">Autor: {{livro.autor}}</h5>
-        <h5 class="card-title">Edição: {{livro.edicao}}</h5>
-        <h5 class="card-title">Editora: {{livro.editora}}</h5>
-        <h5 class="card-title">Data de publicação: {{livro.ano_publicacao}}</h5>
-        <h5 class="card-title">ISBN: {{livro.isbn}}</h5>
-        <h5 class="card-title">Número de Páginas: {{livro.numero_paginas}}</h5>
+        <h5 class="card-title">Id: {{emprestimo.id}}</h5>
+        <h5 class="card-title">Aluno: {{emprestimo.aluno_id}}</h5>
+        <h5 class="card-title">Título: {{emprestimo.titulo_id}}</h5>
+        <h5 class="card-title">Data do Empréstimo: {{emprestimo.data_emprestimo}}</h5>
+        <h5 class="card-title">Data Prevista de Devolução: {{emprestimo.data_prevista_devolucao}}</h5>
+        <h5 class="card-title">Data de Devolução: {{emprestimo.data_devolucao}}</h5>
+        <h5 class="card-title">Status: {{emprestimo.status}}</h5>
 
         <form method="post">
              {% csrf_token %}
