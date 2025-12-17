@@ -22,20 +22,20 @@ def listar_emprestimos(request):
 
     ordem = request.GET.get('ordem', 'titulo_asc')  # padrão
 
-    if ordem == 'titulo_asc':
-        emprestimos = emprestimo.objects.all().order_by(Lower('titulo'))
+    if ordem == 'id_asc':
+        emprestimos = emprestimo.objects.all().order_by('id')
+    elif ordem == 'id_desc':
+        emprestimos = emprestimo.objects.all().order_by('-id')
+    elif ordem == 'aluno_asc':
+        emprestimos = emprestimo.objects.all().order_by(Lower('aluno_id'))
+    elif ordem == 'aluno_desc':
+        emprestimos = emprestimo.objects.all().order_by(Lower('aluno_id').desc())
+    elif ordem == 'titulo_asc':
+        emprestimos = emprestimo.objects.all().order_by(Lower('titulo_id'))
     elif ordem == 'titulo_desc':
-        emprestimos = emprestimo.objects.all().order_by(Lower('titulo').desc())
-    elif ordem == 'autor_asc':
-        emprestimos = emprestimo.objects.all().order_by(Lower('autor'))
-    elif ordem == 'autor_desc':
-        emprestimos = emprestimo.objects.all().order_by(Lower('autor').desc())
-    elif ordem == 'editora_asc':
-        emprestimos = emprestimo.objects.all().order_by(Lower('editora'))
-    elif ordem == 'editora_desc':
-        emprestimos = emprestimo.objects.all().order_by(Lower('editora').desc())
+        emprestimos = emprestimo.objects.all().order_by(Lower('titulo_id').desc())
     else:
-        emprestimos = emprestimo.objects.all().order_by(Lower('titulo'))  # fallback
+        emprestimos = emprestimo.objects.all().order_by(Lower('id'))  # fallback
 
     context = {
         'emprestimos': emprestimos,
