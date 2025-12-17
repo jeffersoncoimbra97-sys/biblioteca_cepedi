@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lista de Empréstimos</title>
 </head>
 <body>
     <div class="row">
@@ -58,8 +58,8 @@
                     {% for e in emprestimos %}
                         <tr>
                             <td>{{ e.id }}</td>
-                            <td><a href="#">{{ e.aluno.upper }}</a></td>
-                            <td>{{ e.titulo }}</td>
+                            <td><a href="#">{{ e.aluno_id.upper }}</a></td>
+                            <td>{{ e.titulo_id }}</td>
                             <td>{{ e.data_emprestimo | date:'d/m/Y'}}</td>
                             <td>{{ e.data_prevista_devolucao | date:'d/m/Y'}}</td>
                             <td>{{ e.data_devolucao | date:'d/m/Y'}}</td>
