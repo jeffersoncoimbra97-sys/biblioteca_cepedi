@@ -103,11 +103,11 @@ body.dark a i.fa-search {
     <div class="card-body">
         <h5 class="card-title">Id: {{emprestimo.id}}</h5>
         <h5 class="card-title">Aluno: {{emprestimo.aluno_id}}</h5>
-        <h5 class="card-title">Título: {{emprestimo.titulo_id}}</h5>
+        <h5 class="card-title">Livro: {{emprestimo.livro_id}}</h5>
         <h5 class="card-title">Data do Empréstimo: {{emprestimo.data_emprestimo}}</h5>
         <h5 class="card-title">Data Prevista de Devolução: {{emprestimo.data_prevista_devolucao}}</h5>
         <h5 class="card-title">Data de Devolução: {{emprestimo.data_devolucao}}</h5>
-        <h5 class="card-title">Status: {{emprestimo.status}}</h5>
+        <h5 class="card-title">Status: {{emprestimo.get_status_display}}</h5>
 
         <form method="post">
              {% csrf_token %}

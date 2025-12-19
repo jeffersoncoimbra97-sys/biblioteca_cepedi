@@ -35,7 +35,7 @@ def listar_livros(request):
     elif ordem == 'editora_desc':
         livros = Livro.objects.all().order_by(Lower('editora').desc())
     else:
-        livros = Livro.objects.all().order_by(Lower('titulo'))  # fallback
+        livros = Livro.objects.all().order_by(Lower('titulo'))
 
     context = {
         'livros': livros,

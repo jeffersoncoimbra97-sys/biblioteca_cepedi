@@ -63,7 +63,7 @@ def listar_alunos(request):
     elif ordem == 'matricula_desc':
         alunos = Aluno.objects.all().order_by('-matricula')
     else:
-        alunos = Aluno.objects.all().order_by(Lower('nome'))  # fallback
+        alunos = Aluno.objects.all().order_by(Lower('nome'))
 
     context = {
         'alunos': alunos,
