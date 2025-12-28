@@ -49,7 +49,8 @@
                             <th>Matrícula</th>
                             <th>E-mail</th>
                             <th>Telefone</th>
-                            <th>Data Cadastro/Atualização</th>
+                            <th>Data Cadastro</th>
+                            <th>Data Atualização</th>
                             <th>Opções</th>
                         </tr>
                     </thead>
@@ -61,7 +62,8 @@
                             <td>{{ a.matricula }}</td>
                             <td>{{ a.email }}</td>
                             <td>{{ a.telefone }}</td>
-                            <td>{{ a.data_evento  | date:'d/m/Y'}}</td>
+                            <td>{{ a.data_criacao  | date:'d/m/Y'}}</td>
+                            <td>{{ a.ultima_modificacao  | date:'d/m/Y'}}</td>
                             <td>
                                 <a href="#">
                                     <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>

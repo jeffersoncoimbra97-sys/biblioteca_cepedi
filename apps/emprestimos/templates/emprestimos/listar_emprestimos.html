@@ -51,7 +51,7 @@
                             <th>Aluno</th>
                             <th>livro</th>
                             <th>Data do Empréstimo</th>
-                            <th>Data Prevista Devolução</th>
+                            <th>Data Prev. Devolução</th>
                             <th>Data Devolução</th>
                             <th>Status</th>
                             <th>Opções</th>
@@ -61,7 +61,7 @@
                     {% for e in emprestimos %}
                         <tr>
                             <td>{{ e.id }}</td>
-                            <td><a href="#">{{ e.aluno_id | upper }}</a></td>
+                            <td><a href="{% url 'emprestimos:status_emprestimo' e.id%}">{{ e.aluno_id | upper }}</a></td>
                             <td>{{ e.livro_id }}</td>
                             <td>{{ e.data_emprestimo | date:'d/m/Y'}}</td>
                             <td>{{ e.data_prevista_devolucao | date:'d/m/Y'}}</td>

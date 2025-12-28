@@ -7,5 +7,5 @@ class AlunoForm(forms.ModelForm):
 
     class Meta:
         model = Aluno
-        exclude = ['data_criacao', 'ultima_modificacao']
+        exclude = ['data_criacao', 'ultima_modificacao', 'data_evento']
         fields = '__all__'

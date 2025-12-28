@@ -48,7 +48,7 @@ def excluir_aluno(request, id):
 def listar_alunos(request):
     template_name = 'alunos/listar_alunos.html'
 
-    ordem = request.GET.get('ordem', 'nome_asc')  # padrão
+    ordem = request.GET.get('ordem', 'id_asc')  # padrão
 
     if ordem == 'nome_asc':
         alunos = Aluno.objects.all().order_by(Lower('nome'))
@@ -63,7 +63,7 @@ def listar_alunos(request):
     elif ordem == 'matricula_desc':
         alunos = Aluno.objects.all().order_by('-matricula')
     else:
-        alunos = Aluno.objects.all().order_by(Lower('nome'))
+        alunos = Aluno.objects.all().order_by('id')
 
     context = {
         'alunos': alunos,

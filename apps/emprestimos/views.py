@@ -20,7 +20,7 @@ def inserir_emprestimo(request):
 def listar_emprestimos(request):
     template_name = 'emprestimos/listar_emprestimos.html'
 
-    ordem = request.GET.get('ordem', 'aluno_id_asc')  # padrão
+    ordem = request.GET.get('ordem', 'id_asc')  # padrão
 
     if ordem == 'aluno_asc':
         emprestimos = Emprestimo.objects.all().order_by(Lower('aluno_id'))
@@ -35,7 +35,7 @@ def listar_emprestimos(request):
     elif ordem == 'livro_id_desc':
         emprestimos = Emprestimo.objects.all().order_by(Lower('livro_id').desc())
     else:
-        emprestimos = Emprestimo.objects.all().order_by(Lower('aluno_id'))
+        emprestimos = Emprestimo.objects.all().order_by('id')
 
     context = {
         'emprestimos': emprestimos,
@@ -62,4 +62,10 @@ def excluir_emprestimo(request, id):
         emprestimo.delete()
         messages.error(request, 'O Emprestimo foi excluído com sucesso.')
         return redirect('emprestimos:listar_emprestimos')
+    return render(request, template_name, context)
+
+def status_emprestimo(request, id):
+    template_name = 'emprestimos/status_emprestimo.html'
+    emprestimo = Emprestimo.objects.get(id=id)
+    context = {'emprestimo': emprestimo}
     return render(request, template_name, context)

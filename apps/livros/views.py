@@ -20,7 +20,7 @@ def inserir_livro(request):
 def listar_livros(request):
     template_name = 'livros/listar_livros.html'
 
-    ordem = request.GET.get('ordem', 'titulo_asc')  # padrão
+    ordem = request.GET.get('ordem', 'id_asc')  # padrão
 
     if ordem == 'titulo_asc':
         livros = Livro.objects.all().order_by(Lower('titulo'))
@@ -35,7 +35,7 @@ def listar_livros(request):
     elif ordem == 'editora_desc':
         livros = Livro.objects.all().order_by(Lower('editora').desc())
     else:
-        livros = Livro.objects.all().order_by(Lower('titulo'))
+        livros = Livro.objects.all().order_by('id')
 
     context = {
         'livros': livros,
