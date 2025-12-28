@@ -117,15 +117,6 @@ LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_TZ = True
-USE_I18N = True
-USE_TZ = True
-USE_I18N = True
-USE_TZ = True
-
-USE_I18N = True
-
-USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -139,6 +130,9 @@ MESSAGE_TAGS = {
     messages.DEBUG: 'alert-debug'
 }
 
+# Media files (Uploads de fotos dos livros)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
