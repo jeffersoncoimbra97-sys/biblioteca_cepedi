@@ -94,13 +94,30 @@ img[data-bs-toggle="modal"]:hover {
     border: 1px dashed #dee2e6;
 }
 
+
 /* Botões e Ícones */
 .tema-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 1000;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
 }
 
+body.dark #paste-area {
+    background-color: #333 !important;
+    border-color: #555 !important;
+    color: #ccc;
+}
+
+#paste-area:focus {
+    border-color: #28a745 !important;
+    outline: none;
+}
+
+body.dark #preview-container {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+}
 .fa-pencil-square:hover { color: #556b2f !important; }
 .fa-trash:hover { color: #b22222 !important; }
