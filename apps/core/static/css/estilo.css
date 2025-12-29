@@ -55,3 +55,14 @@ a {
     border-radius: 4px;
     border: 1px dashed #dee2e6;
 }
+
+/* Ajuste para o texto dos títulos no Dark Mode */
+body.dark .card-title, 
+body.dark .card-text, 
+body.dark strong {
+    color: #e0e0e0; /* Cinza claro para leitura */
+}
+
+body.dark hr {
+    border-top: 1px solid #444; /* Linha divisória mais sutil */
+}
