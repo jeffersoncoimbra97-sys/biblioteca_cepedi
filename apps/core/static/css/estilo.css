@@ -66,3 +66,21 @@ body.dark strong {
 body.dark hr {
     border-top: 1px solid #444; /* Linha divisória mais sutil */
 }
+
+<script>
+    function mudarTema() {
+        document.body.classList.toggle("dark");
+
+        // Salvar preferência
+        if (document.body.classList.contains("dark")) {
+            localStorage.setItem("tema", "dark");
+        } else {
+            localStorage.setItem("tema", "light");
+        }
+    }
+
+    // Carregar tema salvo
+    if (localStorage.getItem("tema") === "dark") {
+        document.body.classList.add("dark");
+    }
+</script>
