@@ -84,3 +84,63 @@ body.dark hr {
         document.body.classList.add("dark");
     }
 </script>
+<style>
+    /* Tema claro (padrão) */
+    body {
+        background-color: white;
+        color: black;
+        transition: 0.3s;
+    }
+
+    /* Tema escuro */
+    body.dark {
+        background-color: #121212;
+        color: white;
+    }
+
+    body.dark .card {
+        background-color: #1e1e1e;
+        color: white;
+    }
+
+/* cor das letras */
+    body.dark table {
+        color: #4da378;
+    }
+
+/* cor do q ta no titulo */
+    body.dark thead {
+        background-color: #1a4d1a !important;
+        color: white !important;
+    }
+
+/* cor das faixas entre cada coiso */
+  body.dark .table-striped tbody tr:nth-of-type(even) {
+        background-color: #383b39; /* cinza 2 */
+    }
+
+/* cor de link */
+body.dark a {
+    color: #4da378;
+    text-decoration: none;
+}
+
+body.dark a i.fa-search {
+    color: #8cff8c !important; /* verde claro no escuro */
+}
+
+    body.dark .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #1c1c1c;
+    }
+
+
+
+    /* Botão do tema */
+    .tema-btn {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 1000;
+    }
+</style>
+
