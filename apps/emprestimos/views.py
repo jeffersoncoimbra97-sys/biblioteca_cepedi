@@ -5,6 +5,7 @@ from .forms import EmprestimoForm
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Emprestimo
 
+
 def inserir_emprestimo(request):
     template_name = 'emprestimos/form_emprestimo.html'
     if request.method == 'POST':

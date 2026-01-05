@@ -66,7 +66,7 @@ body.dark a {
 /* Esta parte garante que a janela de informações do livro fique correta */
 body.dark .modal-content {
     background-color: #1e1e1e;
-    color: #e0e0e0;
+    color: #eaeaea;
     border: 1px solid #444;
 }
 
@@ -78,6 +78,7 @@ body.dark .modal-header {
 body.dark .modal-footer {
     background-color: #252525;
     border-top: 1px solid #333;
+
 }
 
 body.dark #detalhe-titulo {
@@ -86,8 +87,12 @@ body.dark #detalhe-titulo {
 
 body.dark .badge-light {
     background-color: #333;
-    color: #8cff8c;
+    color: #8cff8c !important;
     border: 1px solid #444;
+}
+
+body.dark p i.fa-building,body.dark p i.fa-user-circle {
+    color: white !important;
 }
 
 /* --- 4. COMPONENTES E BOTÃO DE TEMA --- */

@@ -75,16 +75,16 @@
                             <td>
     <a href="javascript:void(0)" 
        class="livro-link font-weight-bold"
-       data-bs-toggle="modal" 
+       data-bs-toggle="modal"
        data-bs-target="#detalhesLivroModal"
-       data-bs-titulo="{{ e.livro.titulo }}"
-       data-bs-autor="{{ e.livro.autor }}"
-       data-bs-editora="{{ e.livro.editora }}"
-       data-bs-isbn="{{ e.livro.isbn }}"
-       data-bs-paginas="{{ e.livro.numero_paginas }}"
-       data-bs-foto="{% if e.livro.foto %}{{ e.livro.foto.url }}{% endif %}"
+       data-bs-titulo="{{ e.livro_id }}"
+       data-bs-autor="{{ e.livro_id.autor }}"
+       data-bs-editora="{{ e.livro_id.editora }}"
+       data-bs-isbn="{{ e.livro_id.isbn }}"
+       data-bs-paginas="{{ e.livro_id.numero_paginas }}"
+       data-bs-foto="{% if e.livro_id.foto %}{{ e.livro_id.foto.url }}{% endif %}"
        onclick="verDetalhesLivro(this)">
-       <i class="fa fa-info-circle mr-1"></i> {{ e.livro.titulo }}
+       <i class="fa fa-info-circle mr-1"></i> {{ e.livro_id }}
     </a>
                             </td>
                             
@@ -152,13 +152,13 @@
                             <hr>
                             <div class="d-flex justify-content-between">
                                 <span><strong>ISBN:</strong> <span id="detalhe-isbn" class="badge badge-light text-dark"></span></span>
-                                <span><strong>Páginas:</strong> <span id="detalhe-paginas" class="badge badge-info"></span></span>
+                                <span><strong>Páginas:</strong> <span id="detalhe-paginas" class="badge badge-light text-dark"></span></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer bg-light">
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
