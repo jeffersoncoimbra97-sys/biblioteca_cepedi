@@ -6,7 +6,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Tabela no modo claro */
 .table {
     background-color: white;
     border-radius: 8px;
@@ -31,6 +30,11 @@ body.dark .card {
     border-color: #333;
 }
 
+/* Garante que o texto dentro do card fique claro */
+body.dark .card-header {
+    border-bottom: 1px solid #333;
+}
+
 body.dark .card-title, 
 body.dark .card-text, 
 body.dark strong {
@@ -38,16 +42,16 @@ body.dark strong {
 }
 
 body.dark table {
-    color: #4da378 !important;
+    color: #4da378 !important; /* Cor verde para os dados da tabela */
 }
 
 body.dark thead {
-    background-color: #1a4d1a !important;
+    background-color: #1a4d1a !important; /* Cabeçalho da tabela verde escuro */
     color: white !important;
 }
 
 body.dark .table-striped tbody tr:nth-of-type(even) {
-    background-color: #383b39;
+    background-color: #252525;
 }
 
 body.dark .table-striped tbody tr:nth-of-type(odd) {
@@ -58,29 +62,70 @@ body.dark a {
     color: #4da378;
 }
 
-body.dark a i.fa-search {
-    color: #8cff8c !important;
+/* --- 3. MODAL DE DETALHES (DARK MODE) --- */
+/* Esta parte garante que a janela de informações do livro fique correta */
+body.dark .modal-content {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #444;
 }
 
-body.dark hr {
-    border-top: 1px solid #444;
+body.dark .modal-header {
+    background-color: #1a4d1a !important;
+    border-bottom: 1px solid #333;
 }
 
-/* --- 3. ELEMENTOS DOS LIVROS E COMPONENTES --- */
+body.dark .modal-footer {
+    background-color: #252525;
+    border-top: 1px solid #333;
+}
 
-/* Efeito na Capa do Livro */
+body.dark #detalhe-titulo {
+    color: #8cff8c !important; /* Título em destaque no modal */
+}
+
+body.dark .badge-light {
+    background-color: #333;
+    color: #8cff8c;
+    border: 1px solid #444;
+}
+
+/* --- 4. COMPONENTES E BOTÃO DE TEMA --- */
+
+/* Ajuste do Botão de Tema preso ao topo do Card */
+.card-header.position-relative {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tema-btn {
+    position: absolute; 
+    top: 50%;           /* Centraliza verticalmente no header */
+    transform: translateY(-50%);
+    right: 15px;        
+    z-index: 5;
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+body.dark .tema-btn {
+    background-color: #f8f9fa;
+    color: #212529;
+    border: none;
+}
+
+/* Efeito na Capa do Livro e Área de Colar */
 img[data-bs-toggle="modal"] {
-    transition: transform 0.3s ease, filter 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
     cursor: zoom-in;
 }
 
 img[data-bs-toggle="modal"]:hover {
-    filter: brightness(0.8);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* Estilo para quando não há foto */
 .sem-capa {
     width: 50px; 
     height: 75px; 
@@ -94,30 +139,23 @@ img[data-bs-toggle="modal"]:hover {
     border: 1px dashed #dee2e6;
 }
 
+body.dark .sem-capa {
+    background-color: #333;
+    color: #aaa;
+    border-color: #555;
+}
 
-/* Botões e Ícones */
-.tema-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999;
+/* Área de Paste/Upload */
+#paste-area {
+    transition: all 0.3s;
 }
 
 body.dark #paste-area {
-    background-color: #333 !important;
-    border-color: #555 !important;
+    background-color: #252525 !important;
+    border-color: #444 !important;
     color: #ccc;
 }
 
-#paste-area:focus {
-    border-color: #28a745 !important;
-    outline: none;
-}
-
-body.dark #preview-container {
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    border-radius: 8px;
-}
 .fa-pencil-square:hover { color: #556b2f !important; }
 .fa-trash:hover { color: #b22222 !important; }
+    
