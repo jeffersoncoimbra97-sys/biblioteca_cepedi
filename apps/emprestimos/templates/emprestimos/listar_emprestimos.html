@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Listagem de Empréstimos</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -43,6 +43,42 @@
 
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+            <script>
+                function verDetalhesLivro(elemento) {
+    // 1. Extrair os dados do elemento clicado
+    const dados = {
+        titulo: elemento.getAttribute('data-bs-titulo'),
+        autor: elemento.getAttribute('data-bs-autor'),
+        editora: elemento.getAttribute('data-bs-editora'),
+        isbn: elemento.getAttribute('data-bs-isbn'),
+        paginas: elemento.getAttribute('data-bs-paginas'),
+        foto: elemento.getAttribute('data-bs-foto')
+    };
+
+    // 2. Preencher os campos de texto
+    document.getElementById('detalhe-titulo').innerText = dados.titulo;
+    document.getElementById('detalhe-autor').innerText = dados.autor;
+    document.getElementById('detalhe-editora').innerText = dados.editora;
+    document.getElementById('detalhe-isbn').innerText = dados.isbn;
+    document.getElementById('detalhe-paginas').innerText = dados.paginas;
+
+    // 3. Lógica visual da Imagem vs Sem Foto
+    const imgElement = document.getElementById('detalhe-foto');
+    const semFotoElement = document.getElementById('detalhe-sem-foto');
+
+    if (dados.foto && dados.foto !== "") {
+        imgElement.src = dados.foto;
+        imgElement.classList.remove('d-none');
+        semFotoElement.classList.add('d-none');
+    } else {
+        imgElement.classList.add('d-none');
+        semFotoElement.classList.remove('d-none');
+    }
+                }
+                
+            </script>
+            
             <div class="table-responsive">
                 <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -62,7 +98,22 @@
                         <tr>
                             <td>{{ e.id }}</td>
                             <td><a href="{% url 'emprestimos:status_emprestimo' e.id%}">{{ e.aluno_id | upper }}</a></td>
-                            <td>{{ e.livro_id }}</td>
+                            <td>
+    <a href="javascript:void(0)" 
+       class="livro-link font-weight-bold"
+       data-bs-toggle="modal" 
+       data-bs-target="#detalhesLivroModal"
+       data-bs-titulo="{{ e.livro.titulo }}"
+       data-bs-autor="{{ e.livro.autor }}"
+       data-bs-editora="{{ e.livro.editora }}"
+       data-bs-isbn="{{ e.livro.isbn }}"
+       data-bs-paginas="{{ e.livro.numero_paginas }}"
+       data-bs-foto="{% if e.livro.foto %}{{ e.livro.foto.url }}{% endif %}"
+       onclick="verDetalhesLivro(this)">
+       <i class="fa fa-info-circle mr-1"></i> {{ e.livro.titulo }}
+    </a>
+                            </td>
+                            
                             <td>{{ e.data_emprestimo | date:'d/m/Y'}}</td>
                             <td>{{ e.data_prevista_devolucao | date:'d/m/Y'}}</td>
                             <td>{{ e.data_devolucao | date:'d/m/Y'}}</td>
@@ -100,6 +151,47 @@
             <a href="{% url 'index' %}"><button class="btn btn-primary">Voltar</button></a>
         </div>
     </div>
+    
+    <div class="modal fade" id="detalhesLivroModal" tabindex="-1" aria-labelledby="detalhesLivroModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="detalhesLivroModalLabel">
+                    <i class="fa fa-book"></i> Ficha Técnica do Livro
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center mb-3 mb-md-0">
+                        <div id="wrapper-foto">
+                            <img id="detalhe-foto" src="" class="img-fluid rounded shadow-lg border" style="max-height: 220px; transition: 0.3s;">
+                        </div>
+                        <div id="detalhe-sem-foto" class="sem-capa mx-auto d-none" style="width: 120px; height: 180px; font-size: 14px;">
+                            Sem Capa
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h3 id="detalhe-titulo" class="mb-3 font-weight-bold" style="color: #2c3e50;"></h3>
+                        <div class="info-corpo">
+                            <p class="mb-2"><strong><i class="fa fa-user-circle text-muted"></i> Autor:</strong> <br><span id="detalhe-autor"></span></p>
+                            <p class="mb-2"><strong><i class="fa fa-building text-muted"></i> Editora:</strong> <br><span id="detalhe-editora"></span></p>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <span><strong>ISBN:</strong> <span id="detalhe-isbn" class="badge badge-light text-dark"></span></span>
+                                <span><strong>Páginas:</strong> <span id="detalhe-paginas" class="badge badge-info"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    
 </body>
 </html>
 
