@@ -3,6 +3,7 @@ from django.forms import ModelForm, DateInput
 
 from .models import Livro
 
+
 class LivroForm(forms.ModelForm):
 
     class Meta:
@@ -10,9 +11,7 @@ class LivroForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'ano_publicacao': forms.DateInput(
-                format=('%d/%m/%Y'),
-                attrs={'class': 'form-control',
-                       'placeholder': 'Selecione uma data',
-                       'type': 'date'
-                       }),
+                format=('%Y-%m-%d'),
+                attrs={'type': 'date',
+                       'class': 'form-control'}),
         }

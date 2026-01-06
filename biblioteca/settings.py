@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.livros',
     'apps.emprestimos',
     'apps.core',
+    'apps.editoras',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
