@@ -1,22 +1,14 @@
-{% load crispy_forms_tags %}
+{% extends 'base.html' %}
 
-{% load widget_tweaks %}
+{% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
     <div class="row">
         <div class="col-12">
         </div>
     </div>
     <div class="card mb-3">
         <div class="card-header">
-            <h2><i class="fa fa-list"> Listagem de alunos</i></h2>
+            <h2><i class="fa fa-list">{% block title %}Listagem de alunos{% endblock %}</i></h2>
         </div>
         <div class="card-body">
 
@@ -89,8 +81,7 @@
             <a href="{% url 'index' %}"><button class="btn btn-primary">Voltar</button></a>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
 
 
 
